@@ -1,0 +1,45 @@
+<ng-container>
+  <h1>Country Stats</h1>
+  <span class="text-gray-600">Select Filters to Customize Country Statistics</span>
+  <form class="flex flex-wrap gap-2 mt-5" [formGroup]="filterForm">
+    <p-dropdown styleClass="w-18rem" [options]="regions" formControlName="selectedRegion" optionLabel="name"
+      optionValue="regionId" placeholder="Choose a region"></p-dropdown>
+    <p-dropdown styleClass="w-18rem" [options]="years" formControlName="fromYear"
+      placeholder="Choose a year from : "></p-dropdown>
+    <p-dropdown styleClass="w-18rem" [options]="years" formControlName="toYear"
+      placeholder="Choose a year to : "></p-dropdown>
+  </form>
+
+  <div class="flex flex-wrap gap-2 mt-5">
+    <p-button (onClick)="initSearch()" size="small" label="Search" icon="pi pi-search"></p-button>
+    <p-button (onClick)="resetSearch()" size="small" label="Clear" [outlined]="true" severity="danger"
+      icon="pi pi-trash"></p-button>
+
+  </div>
+
+  <p-table [loading]="loading" [value]="countryStats" styleClass="mt-5" [tableStyle]="{ 'min-width': '50rem' }">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Continent</th>
+        <th>Region</th>
+        <th>Country</th>
+        <th>Year</th>
+        <th>Population</th>
+        <th>Gdp</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-stat>
+      <tr>
+        <td>{{ stat.continentName }}</td>
+        <td>{{ stat.regionName }}</td>
+        <td>{{ stat.countryName }}</td>
+        <td>{{ stat.year}}</td>
+        <td>{{ stat.population | population }}</td>
+        <td>{{ stat.gdp | currency:'USD':'symbol':'1.2-2' }}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+  <p-paginator (onPageChange)="onPageChange($event)" [first]="first" [rows]="10"
+    [totalRecords]="totalRecords"></p-paginator>
+
+</ng-container>

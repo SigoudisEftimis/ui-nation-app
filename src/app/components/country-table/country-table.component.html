@@ -1,0 +1,25 @@
+<ng-container>
+  <h1>Countries</h1>
+  <p-table [loading]="loading" [value]="countries" styleClass="p-datatable-sm" [tableStyle]="{ 'min-width': '50rem' }">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Name</th>
+        <th>Code</th>
+        <th>Area size (sqkm)</th>
+        <th></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-country>
+      <tr>
+        <td>{{ country.name }}</td>
+        <td>{{ country.countryCode2 }}</td>
+        <td>{{ country.area | sqkm}}</td>
+        <td><p-button  [routerLink]="['/countries/' + country.id + '/languages']" icon="pi pi-arrow-right"
+            [rounded]="true" [text]="true"></p-button></td>
+      </tr>
+    </ng-template>
+  </p-table>
+  <p-paginator (onPageChange)="onPageChange($event)" [first]="first"  [rows]="10"
+    [totalRecords]="totalRecords"></p-paginator>
+
+</ng-container>

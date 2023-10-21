@@ -1,0 +1,21 @@
+<ng-container>
+  <h1>Languages</h1>
+
+  <div class="grid gap-2">
+    <div class="col-3" *ngFor="let lang of languages">
+      <p-card header="{{ lang.language }}">
+        <p>
+          Official:
+          <ng-container *ngIf="lang.official === 1; else notOfficial">
+            <b class="text-blue-700">Yes</b>
+          </ng-container>
+          <ng-template #notOfficial>No</ng-template>
+        </p>
+      </p-card>
+    </div>
+  </div>
+
+  <div *ngIf="!loading && languages.length === 0" class="text-red-700">
+    No languages found.
+  </div>
+</ng-container>

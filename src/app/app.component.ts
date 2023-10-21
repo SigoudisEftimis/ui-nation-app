@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { MenuItem, MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,43 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'application';
+  title = 'nation';
+
+  items: MenuItem[] | undefined;
+
+    constructor( private router: Router) {}
+
+    ngOnInit() {
+        this.items = [
+            {
+                label: 'Actions',
+                items: [
+                    {
+                        label: 'Countries',
+                        icon: 'pi pi-refresh',
+                        command: () => {
+                            this.router.navigate(['/countries'])
+                        }
+                    },
+                    {
+                        label: 'Gdp/Population',
+                        icon: 'pi pi-percentage',
+                        command: () => {
+                          this.router.navigate(['/gdp-population-ratio'])
+                        }
+                    },
+                    {
+                      label: 'Country Stats',
+                      icon: 'pi pi-chart-line',
+                      command: () => {
+                        this.router.navigate(['/statistics'])
+                      }
+                  }
+                ]
+            }
+        ];
+    }
+
+
+
 }

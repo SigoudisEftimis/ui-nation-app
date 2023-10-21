@@ -1,0 +1,32 @@
+<ng-container>
+  <h1>Gdp population ratio per country</h1>
+  <p-table [loading]="loading" [value]="gdpPopulationdata" styleClass="p-datatable-sm"
+    [tableStyle]="{ 'min-width': '50rem' }">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Name</th>
+        <th>Year</th>
+        <th>Country Code</th>
+        <th>Population</th>
+        <th>Gdp</th>
+        <th>Gdp/Population <i class="pi pi-info-circle"
+            pTooltip="Please note that the GDP per capita ratio has been rounded to the nearest whole number for simplicity and readability. The exact value may have decimal places, but for ease of understanding, we have provided an approximate rounded value"></i>
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-data>
+      <tr>
+        <td>{{ data.name }}</td>
+        <td>{{ data.year }}</td>
+        <td>{{ data.countryCode3 }}</td>
+        <td>{{ data.population | population }}</td>
+        <td>{{ data.gdp | currency:'USD':'symbol':'1.2-2' }}</td>
+        <td>{{ data.gdp / data.population | roundNumber: 0  | currency:'USD':'symbol':'1.2-2' }}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+  <p-paginator (onPageChange)="onPageChange($event)" [first]="first" [rows]="10"
+    [totalRecords]="totalRecords"></p-paginator>
+
+
+</ng-container>
