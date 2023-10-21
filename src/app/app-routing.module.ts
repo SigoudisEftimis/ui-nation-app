@@ -21,6 +21,11 @@ const routes: Routes = [{
   loadChildren: () =>
     import('./components/country-stats/country-stats.module').then((m) => m.CountryStatsModule),
 },
+{
+  path: '',
+  loadChildren: () =>
+    import('./components/info/info.module').then((m) => m.InfoModule),
+},
 ];
 
 @NgModule({

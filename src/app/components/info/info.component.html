@@ -1,0 +1,128 @@
+<ng-container>
+  <h1 class="text-blue-700">Welcome to Qualco Nation Information Portal</h1>
+  <p>
+    The Nation Information Portal is your gateway to a world of knowledge about
+    countries, regions, and continents. Our application offers a wealth of
+    information at your fingertips, enabling you to explore and understand the
+    diverse and dynamic aspects of nations around the globe.
+  </p>
+
+  <div class="grid mt-5">
+    <div class="col-4">
+      <p-card
+        header="Countries"
+        subheader="Our new screen, allowing you to explore countries and discover the languages they speak"
+        [style]="{ width: '360px', height: '500px' }"
+      >
+
+        <ul class="text-sm">
+          <li>
+            <strong>Explore Countries:</strong> Find a list of countries with
+            names, areas, and country codes for quick reference.
+          </li>
+          <li>
+            <strong>Dive Deeper:</strong> Click on any country to learn about
+            its culture and language.
+          </li>
+          <li>
+            <strong>Discover Spoken Languages:</strong> Explore languages spoken
+            in each country on a dedicated page.
+          </li>
+          <li>
+            <strong>User-Friendly Navigation:</strong> Enjoy a hassle-free
+            experience - just click and explore!
+          </li>
+        </ul>
+
+        <p-button
+          [style]="{ width: '100%' }"
+          [routerLink]="['/countries']"
+          [outlined]="true"
+          label="Countries"
+          icon="pi pi-arrow-right"
+          iconPos="right"
+        ></p-button>
+      </p-card>
+    </div>
+
+    <div class="col-4">
+      <p-card
+        header="Gdp-Population"
+        subheader="
+        Our new screen that provides valuable insights into countries and their economic data. Here's what you can do"
+        [style]="{ width: '360px', height: '500px' }"
+      >
+
+
+        <ul class="text-sm">
+          <li>
+            <strong>Explore Countries:</strong> Find a curated list of countries
+            with key information.
+          </li>
+          <li>
+            <strong>Discover Key Data:</strong> View a concise table with
+            country names, codes, years, populations, and GDP for a global
+            economic overview.
+          </li>
+          <li>
+            <strong>Compare Economies:</strong> Easily compare economic
+            performance across countries and over time.
+          </li>
+          <li>
+            <strong>Gain Insights:</strong> Use this resource to analyze trends,
+            understand growth, and make informed decisions.
+          </li>
+        </ul>
+
+        <p-button
+          [style]="{ width: '100%' }"
+          [routerLink]="['/gdp-population-ratio']"
+          [outlined]="true"
+          label="Gdp-poplation"
+          icon="pi pi-arrow-right"
+          iconPos="right"
+        ></p-button>
+      </p-card>
+    </div>
+
+    <div class="col-4">
+      <p-card
+        header="Country Stats"
+        subheader="Our new screen, where you can explore economic data with ease. Here's what you can do
+       "
+        [style]="{ width: '360px', height: '500px' }"
+      >
+
+
+        <ul class="text-sm">
+          <li>
+            <strong>Discover World Regions:</strong> Use the dropdown to select
+            regions and focus on specific areas of the world.
+          </li>
+          <li>
+            <strong>Analyze Historical Data:</strong> Set a date range with
+            "From" and "To" filters to view data for specific years
+          </li>
+          <li>
+            <strong>Analyze Historical Data</strong> The table displays
+            information about continents, regions, countries, and key economic
+            data like population and GDP.
+          </li>
+          <li>
+            <strong>Filter and Compare:</strong> With the filtering options, you
+            can narrow down your search and compare economic trends in different
+            regions and over time.
+          </li>
+        </ul>
+        <p-button
+        [style]="{ width: '100%' }"
+        [routerLink]="['/statistics']"
+        [outlined]="true"
+        label="Country Stats"
+        icon="pi pi-arrow-right"
+        iconPos="right"
+      ></p-button>
+      </p-card>
+    </div>
+  </div>
+</ng-container>
